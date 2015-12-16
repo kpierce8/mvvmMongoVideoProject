@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ltdilModel.Store" Provider="System.Data.CData.MongoDB" ProviderManifestToken="MongoDB" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="theLands">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="string" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="justTextID" Type="string" />
+          <Property Name="targetDB" Type="string" />
+          <Property Name="parkID" Type="string" />
+          <Property Name="landID" Type="string" />
+          <Property Name="lineValue" Type="string" />
+          <Property Name="section" Type="string" />
+        </EntityType>
+        <EntityType Name="theRides">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="string" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="questionType" Type="string" />
+          <Property Name="questionID" Type="string" />
+          <Property Name="rideID" Type="string" />
+          <Property Name="justTextID" Type="string" />
+          <Property Name="isCorrect" Type="string" />
+          <Property Name="targetDB" Type="string" />
+          <Property Name="answerID" Type="string" />
+          <Property Name="landID" Type="string" />
+          <Property Name="lineValue" Type="string" />
+        </EntityType>
+        <EntityContainer Name="ltdilModelStoreContainer">
+          <EntitySet Name="theLands" EntityType="Self.theLands" Schema="MongoDB" store:Type="Tables" />
+          <EntitySet Name="theRides" EntityType="Self.theRides" Schema="MongoDB" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ltdilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="theLand">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="justTextID" Type="String" />
+          <Property Name="targetDB" Type="String" />
+          <Property Name="parkID" Type="String" />
+          <Property Name="landID" Type="String" />
+          <Property Name="lineValue" Type="String" />
+          <Property Name="section" Type="String" />
+        </EntityType>
+        <EntityType Name="theRide">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="questionType" Type="String" />
+          <Property Name="questionID" Type="String" />
+          <Property Name="rideID" Type="String" />
+          <Property Name="justTextID" Type="String" />
+          <Property Name="isCorrect" Type="String" />
+          <Property Name="targetDB" Type="String" />
+          <Property Name="answerID" Type="String" />
+          <Property Name="landID" Type="String" />
+          <Property Name="lineValue" Type="String" />
+        </EntityType>
+        <EntityContainer Name="ltdilEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="theLands" EntityType="Self.theLand" />
+          <EntitySet Name="theRides" EntityType="Self.theRide" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ltdilModelStoreContainer" CdmEntityContainer="ltdilEntities">
+          <EntitySetMapping Name="theLands">
+            <EntityTypeMapping TypeName="ltdilModel.theLand">
+              <MappingFragment StoreEntitySet="theLands">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="justTextID" ColumnName="justTextID" />
+                <ScalarProperty Name="targetDB" ColumnName="targetDB" />
+                <ScalarProperty Name="parkID" ColumnName="parkID" />
+                <ScalarProperty Name="landID" ColumnName="landID" />
+                <ScalarProperty Name="lineValue" ColumnName="lineValue" />
+                <ScalarProperty Name="section" ColumnName="section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="theRides">
+            <EntityTypeMapping TypeName="ltdilModel.theRide">
+              <MappingFragment StoreEntitySet="theRides">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="questionType" ColumnName="questionType" />
+                <ScalarProperty Name="questionID" ColumnName="questionID" />
+                <ScalarProperty Name="rideID" ColumnName="rideID" />
+                <ScalarProperty Name="justTextID" ColumnName="justTextID" />
+                <ScalarProperty Name="isCorrect" ColumnName="isCorrect" />
+                <ScalarProperty Name="targetDB" ColumnName="targetDB" />
+                <ScalarProperty Name="answerID" ColumnName="answerID" />
+                <ScalarProperty Name="landID" ColumnName="landID" />
+                <ScalarProperty Name="lineValue" ColumnName="lineValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
